@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function PaymentSuccessPage() {
@@ -27,16 +27,12 @@ export default function PaymentSuccessPage() {
           </div>
 
           <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild size="lg" className="gap-2 font-semibold">
-              <Link href="/dashboard">
-                Go to Customer Dashboard <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <Link href="/services">
-                Browse More Services
-              </Link>
-            </Button>
+            <Link href="/dashboard" className={buttonVariants({ size: "lg", className: "gap-2 font-semibold" })}>
+              Go to Customer Dashboard <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link href="/services" className={buttonVariants({ variant: "outline", size: "lg" })}>
+              Browse More Services
+            </Link>
           </div>
         </CardContent>
       </Card>

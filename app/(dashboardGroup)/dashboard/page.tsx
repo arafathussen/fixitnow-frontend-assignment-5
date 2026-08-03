@@ -53,8 +53,11 @@ export default async function CustomerDashboard() {
     redirect("/login");
   }
 
-  const bookings = bookingsRes.success ? bookingsRes.data?.data || bookingsRes.data || [] : [];
-  const payments = paymentsRes.success ? paymentsRes.data?.data || paymentsRes.data || [] : [];
+  const rawBookings: any = bookingsRes.success ? bookingsRes.data?.data || bookingsRes.data : [];
+  const bookings: any[] = Array.isArray(rawBookings) ? rawBookings : [];
+
+  const rawPayments: any = paymentsRes.success ? paymentsRes.data?.data || paymentsRes.data : [];
+  const payments: any[] = Array.isArray(rawPayments) ? rawPayments : [];
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">

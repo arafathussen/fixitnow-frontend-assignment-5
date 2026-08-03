@@ -145,10 +145,10 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
                         <Tag className="w-3 h-3 text-slate-500" />
                         {service.category?.name || "General"}
                       </Badge>
-                      <Badge variant="outline" className={isTechOnline && !service.technician?.user?.isBanned ? "text-emerald-700 bg-emerald-50 border-emerald-200" : "text-rose-700 bg-rose-50 border-rose-200"}>
-                        {service.technician?.user?.isBanned ? "Suspended" : isTechOnline ? "Available" : "Offline"}
+                      <Badge variant="outline" className={isTechOnline && !(service.technician?.user as any)?.isBanned ? "text-emerald-700 bg-emerald-50 border-emerald-200" : "text-rose-700 bg-rose-50 border-rose-200"}>
+                        {(service.technician?.user as any)?.isBanned ? "Suspended" : isTechOnline ? "Available" : "Offline"}
                       </Badge>
-                      {service.technician?.user?.isBanned && (
+                      {(service.technician?.user as any)?.isBanned && (
                         <Badge variant="destructive" className="bg-rose-600 text-white font-semibold gap-1 text-[11px]">
                           🚫 Account Banned
                         </Badge>
@@ -244,7 +244,7 @@ export default async function ServiceDetailsPage({ params }: { params: Promise<{
               duration={service.duration}
               isAvailable={isTechOnline}
               userRole={userRole}
-              isTechBanned={Boolean(service.technician?.user?.isBanned)}
+              isTechBanned={Boolean((service.technician?.user as any)?.isBanned)}
               token={token}
             />
           </div>

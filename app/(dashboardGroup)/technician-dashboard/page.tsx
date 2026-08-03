@@ -58,9 +58,13 @@ export default async function TechnicianDashboard() {
     redirect("/login");
   }
 
-  const bookings = bookingsRes.success ? bookingsRes.data?.data || bookingsRes.data || [] : [];
+  const rawBookings: any = bookingsRes.success ? bookingsRes.data?.data || bookingsRes.data : [];
+  const bookings: any[] = Array.isArray(rawBookings) ? rawBookings : [];
+
   const profile = profileRes.success ? profileRes.data?.data || profileRes.data : null;
-  const categories = categoriesRes.success ? categoriesRes.data?.data || categoriesRes.data || [] : [];
+
+  const rawCategories: any = categoriesRes.success ? categoriesRes.data?.data || categoriesRes.data : [];
+  const categories: any[] = Array.isArray(rawCategories) ? rawCategories : [];
 
   const totalEarnings = bookings
     .filter((b: any) => b.status === "COMPLETED" || b.status === "PAID")

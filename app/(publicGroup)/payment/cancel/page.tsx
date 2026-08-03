@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { XCircle, ArrowLeft, RefreshCw } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 export default function PaymentCancelPage() {
@@ -26,16 +26,12 @@ export default function PaymentCancelPage() {
           </div>
 
           <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button asChild size="lg" className="gap-2 font-semibold">
-              <Link href="/dashboard">
-                <RefreshCw className="w-4 h-4" /> Return to Dashboard to Retry
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="gap-2">
-              <Link href="/services">
-                <ArrowLeft className="w-4 h-4" /> Return to Services
-              </Link>
-            </Button>
+            <Link href="/dashboard" className={buttonVariants({ size: "lg", className: "gap-2 font-semibold" })}>
+              <RefreshCw className="w-4 h-4" /> Return to Dashboard to Retry
+            </Link>
+            <Link href="/services" className={buttonVariants({ variant: "outline", size: "lg", className: "gap-2" })}>
+              <ArrowLeft className="w-4 h-4" /> Return to Services
+            </Link>
           </div>
         </CardContent>
       </Card>

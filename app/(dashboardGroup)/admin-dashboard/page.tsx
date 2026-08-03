@@ -37,10 +37,17 @@ export default async function AdminDashboard() {
     apiCall<{ data: any[] }>("/api/categories", { cache: "no-store" }),
   ]);
 
-  const users = usersRes.success ? usersRes.data?.data || usersRes.data || [] : [];
-  const bookings = bookingsRes.success ? bookingsRes.data?.data || bookingsRes.data || [] : [];
-  const services = servicesRes.success ? servicesRes.data?.data || servicesRes.data || [] : [];
-  const categories = categoriesRes.success ? categoriesRes.data?.data || categoriesRes.data || [] : [];
+  const rawUsers: any = usersRes.success ? usersRes.data?.data || usersRes.data : [];
+  const users: any[] = Array.isArray(rawUsers) ? rawUsers : [];
+
+  const rawBookings: any = bookingsRes.success ? bookingsRes.data?.data || bookingsRes.data : [];
+  const bookings: any[] = Array.isArray(rawBookings) ? rawBookings : [];
+
+  const rawServices: any = servicesRes.success ? servicesRes.data?.data || servicesRes.data : [];
+  const services: any[] = Array.isArray(rawServices) ? rawServices : [];
+
+  const rawCategories: any = categoriesRes.success ? categoriesRes.data?.data || categoriesRes.data : [];
+  const categories: any[] = Array.isArray(rawCategories) ? rawCategories : [];
 
   const totalRevenue = bookings
     .filter((b: any) => b.status === "PAID" || b.status === "COMPLETED")
