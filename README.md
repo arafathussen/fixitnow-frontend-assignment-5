@@ -2,7 +2,16 @@
 
 Welcome to **FixItNow**, a modern, full-featured home services marketplace built with **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, and **Shadcn UI**. 
 
-This application connects Customers with skilled Technicians for home repairs, wiring, appliance installations, and maintenance services, under Admin moderation.
+---
+
+## 🌐 Live Deployment & Project Links
+
+| Resource | URL Link |
+| :--- | :--- |
+| **🌐 Live Frontend App** | [https://fixitnow-frontend-070.vercel.app](https://fixitnow-frontend-070.vercel.app/) |
+| **⚡ Live Backend API** | [https://fixitnow-api-gh7m.onrender.com](https://fixitnow-api-gh7m.onrender.com/) |
+| **💻 Frontend GitHub Repo** | [fixitnow-frontend-assignment-5](https://github.com/arafathussen/fixitnow-frontend-assignment-5) |
+| **🛠️ Backend GitHub Repo** | [fixitnow-backend-assignment-4](https://github.com/arafathussen/fixitnow-backend-assignment-4) |
 
 ---
 
